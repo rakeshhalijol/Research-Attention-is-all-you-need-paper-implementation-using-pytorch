@@ -12,7 +12,7 @@ class EncoderBlock(nn.Module, Runnable):
     def __init__(self, seq_len: int, embed_dim: int, hidden_dim: int, num_heads: int, dropout=0.1, bias: bool = False):
         super().__init__()
         self.mha = MultiHeadAttention(
-            num_heads=num_heads, embed_dim=embed_dim, seq_length=seq_len)
+            num_heads=num_heads, embed_dim=embed_dim)
         self.ln1 = LayerNormalization(embed_dim=embed_dim)
         self.ln2 = LayerNormalization(embed_dim=embed_dim)
         self.ffn = FeedForward(
